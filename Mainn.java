@@ -1,12 +1,10 @@
 import java.util.Scanner;
 
-// 1. Parent Class
 class Employee {
     String name;
     String department;
     double salary;
 
-    // Parent Constructor
     Employee(String name, String department, double salary) {
         this.name = name;
         this.department = department;
@@ -14,21 +12,16 @@ class Employee {
     }
 }
 
-// 2. Child Class (Inheritance)
 class Bonus extends Employee {
     double bonusAmount;
     double totalEarnings;
 
-    // Child Constructor: Is mein hi calculation hogi
     Bonus(String name, String department, double salary, double bonusPercentage) {
-        // 'super' keyword parent class ke constructor ko call krta hai
         super(name, department, salary);
         
-        // Logic: Bonus calculate krna (Salary * Percentage / 100)
         this.bonusAmount = (salary * bonusPercentage) / 100;
         this.totalEarnings = salary + bonusAmount;
 
-        // Result print krna (Constructor ke andar hi)
         System.out.println("\n--- Employee Salary Slip ---");
         System.out.println("Name: " + this.name);
         System.out.println("Department: " + this.department);
@@ -38,7 +31,6 @@ class Bonus extends Employee {
     }
 }
 
-// 3. Main Execution Class
 public class Mainn {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -55,7 +47,6 @@ public class Mainn {
         System.out.print("Bonus Percentage (%) enter karein: ");
         double p = sc.nextDouble();
 
-        // Object banatay hi Constructor call ho jaye ga aur output aa jaye gi
         new Bonus(n, d, s, p);
 
         sc.close();
